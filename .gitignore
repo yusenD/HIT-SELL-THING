@@ -18,6 +18,16 @@
 # Visual Studio Code related
 .vscode/
 
+# node
+.hg
+.svn
+.CVS
+.idea
+node_modules/
+jscoverage_lib/
+bower_components/
+dist/
+
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/
