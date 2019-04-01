@@ -8,7 +8,6 @@ import 'package:hit_sell_thing/page/my.dart';
 class IndexPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return new IndexPageState();
       }
 }
