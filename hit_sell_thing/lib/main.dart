@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './main_menu/FirstPage.dart';
-import './main_menu/SecondPage.dart';
-import './main_menu/PublishPage.dart';
+import './main_meau/FirstPage.dart';
+import './main_meau/SecondPage.dart';
+import './main_meau/PublishPage.dart';
 
 void main() => runApp(MyApp());
 
