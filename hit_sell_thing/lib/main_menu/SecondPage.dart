@@ -6,10 +6,10 @@ class SecondPage extends StatefulWidget {
   
 
 class SecondPageState extends State<SecondPage> {
-  List<Icon> person_icon = <Icon> [new Icon(Icons.person), new Icon(Icons.note), new Icon(Icons.place), new Icon(Icons.power),
-  new Icon(Icons.report), new Icon(Icons.share), new Icon(Icons.star), new Icon(Icons.vpn_key)];
+  List<Icon> person_icon = <Icon> [new Icon(Icons.person), new Icon(Icons.note), new Icon(Icons.power),
+  new Icon(Icons.report), new Icon(Icons.star)];
 
-  List<String> person_string = <String> ["个人信息", "我的卖品", "购物篮", "等级评价", "个人成就", "关于我们", "意见反馈", "赞助商"];
+  List<String> person_string = <String> ["个人信息", "我发布的", "我收藏的", "意见反馈", "关于我们"];
 
   Widget buildPersonListData(BuildContext context, Icon person_icon, String person_string) {
     return new ListTile(
