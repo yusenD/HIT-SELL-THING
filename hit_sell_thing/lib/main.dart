@@ -30,6 +30,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin{
   TabController controller;
   int _counter = 0;
+  int _currentTabIndex = 0;
 
   // 应用程序的主页,可以配置它的相关状态
 
@@ -53,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     return Scaffold(
       body: new TabBarView(
+        physics: new NeverScrollableScrollPhysics(), // 底部导航栏禁止滑动
         controller: controller,
         children: <Widget>[
           new FirstPage(), // 页面一:商城
@@ -72,14 +74,20 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       }),
       bottomNavigationBar: new Material(
         color: Colors.white,
-        child: new TabBar(
-          labelColor: Colors.black,
-          controller: controller,
-          tabs: <Tab>[
-            new Tab(text: "商城", icon: new Icon(Icons.shop)),
-            new Tab(text: "个人信息", icon: new Icon(Icons.people))
-          ]
-        ),
+        child: new Container(
+          height: 65,
+          child: new TabBar(
+            labelColor: Colors.lightBlue,
+            labelStyle: new TextStyle(fontSize: 14),
+            unselectedLabelColor: Colors.black,
+            unselectedLabelStyle: new TextStyle(fontSize: 12), 
+            controller: controller,
+            tabs: <Tab>[
+              new Tab(text: "二手街商城", icon: new Icon(Icons.shopping_basket)),
+              new Tab(text: "个人信息", icon: new Icon(Icons.people))
+            ]
+          ),
+        )
       )
     );
   }

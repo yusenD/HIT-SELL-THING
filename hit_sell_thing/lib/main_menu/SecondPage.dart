@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hit_sell_thing/login.dart';
 
 class SecondPage extends StatefulWidget {
     SecondPageState createState() => new SecondPageState();
 }
-  
 
 class SecondPageState extends State<SecondPage> {
   List<Icon> person_icon = <Icon> [new Icon(Icons.person), new Icon(Icons.note), new Icon(Icons.power),
@@ -20,16 +20,39 @@ class SecondPageState extends State<SecondPage> {
   }
 
   Widget build(BuildContext context) {
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('个人空间')
-        ),
-        body: new ListView.builder(
-          itemCount: person_icon.length,
-          itemBuilder: (BuildContext context, int index) {
-            return buildPersonListData(context, person_icon[index], person_string[index]);
-          }
-        )
-      );
-    }
+    return new Scaffold(
+      appBar: AppBar(
+        title: Text("个人空间")
+      ),
+      body: new Column(
+        children: <Widget>[
+          new Container(
+            height: 110.0,
+            width: 600.0,
+            color: Colors.blue,
+            child: new Column(
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.person_add),
+                  iconSize: 60.0,
+                  onPressed: () {
+                    Navigator.push(context, new MaterialPageRoute(builder: (context) => new login()));
+                  },
+                ),
+                new Text("点击头像登录")
+              ]
+            )
+          ),
+          Expanded(
+            child: new ListView.builder(
+              itemCount: person_icon.length,
+              itemBuilder: (BuildContext context, int index) {
+                return buildPersonListData(context, person_icon[index], person_string[index]);
+              }
+            )
+          )
+        ]
+      )
+    );
+  }
 }
