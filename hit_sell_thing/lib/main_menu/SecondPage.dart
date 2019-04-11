@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hit_sell_thing/login.dart';
+import 'package:flutter_object/login.dart';
+import 'package:flutter_object/user_page/aboutUsPage.dart';
+import 'package:flutter_object/user_page/collectPage.dart';
+import 'package:flutter_object/user_page/feedbackPage.dart';
+import 'package:flutter_object/user_page/publishPage.dart';
+import 'package:flutter_object/user_page/setPage.dart';
 
 class SecondPage extends StatefulWidget {
     SecondPageState createState() => new SecondPageState();
@@ -11,11 +16,22 @@ class SecondPageState extends State<SecondPage> {
 
   List<String> person_string = <String> ["个人信息", "我发布的", "我收藏的", "意见反馈", "关于我们"];
 
-  Widget buildPersonListData(BuildContext context, Icon person_icon, String person_string) {
+  List<MaterialPageRoute> person_route = <MaterialPageRoute> [
+    MaterialPageRoute(builder: (context) => new setPage()),
+    MaterialPageRoute(builder: (context) => new publishPage()),
+    MaterialPageRoute(builder: (context) => new collectPage()),
+    MaterialPageRoute(builder: (context) => new feedbackPage()),
+    MaterialPageRoute(builder: (context) => new aboutUsPage()),
+  ];
+
+  Widget buildPersonListData(BuildContext context, Icon list_icon, String list_string, MaterialPageRoute list_route) {
     return new ListTile(
       isThreeLine: false,
-      leading: person_icon,
-      title: new Text(person_string)
+      leading: list_icon,
+      title: new Text(list_string),
+      onTap: () {
+        Navigator.pushReplacement(context, list_route);
+      }
     );
   }
 
@@ -47,7 +63,7 @@ class SecondPageState extends State<SecondPage> {
             child: new ListView.builder(
               itemCount: person_icon.length,
               itemBuilder: (BuildContext context, int index) {
-                return buildPersonListData(context, person_icon[index], person_string[index]);
+                return buildPersonListData(context, person_icon[index], person_string[index], person_route[index]);
               }
             )
           )
